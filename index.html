@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="importmap">{"imports": {"vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"}}</script>
-</head>
-
-<body id="app">
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+<div id="app">
     <p v-show="isShow">{{ message }}</p>
     <p v-if="x === 0">x = 0</p>
     <p v-else-if="x === 1">x = 1</p>
@@ -17,13 +14,30 @@
     <p v-for="(user, index) in users">
         {{index + 1}}. {{ user.name }}`s email: {{user.email}}
     </p>
-</body>
-
+    <p>{{ x * y }}</p>
+    <p>{{ myFun(20) }}</p>
+    <p>
+        {{ name }}
+        {{ count }}
+        <button @click="countEffect(), nameEffect()">+1</button>
+    </p>
+</div>
 <script type="module">
-    import { createApp, ref } from 'vue';
+    import { createApp } from 'vue';
     import MyComponent from './my-component.js';
 
     createApp(MyComponent).mount('#app');
 </script>
-
-</html>
+<style>
+    #app {
+        width: 70%;
+        height: 80%;
+        position: relative;
+        left: 12%;
+        top: 5%;
+        border: 1px solid #444;
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+    }
+</style>
