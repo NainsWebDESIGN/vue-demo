@@ -5,39 +5,53 @@
     }
   }
 </script>
-<div id="app">
-    <p v-show="isShow">{{ message }}</p>
-    <p v-if="x === 0">x = 0</p>
-    <p v-else-if="x === 1">x = 1</p>
-    <p v-else-if="x === 2">x = 2</p>
-    <p v-else>x != 0</p>
-    <p v-for="(user, index) in users">
-        {{index + 1}}. {{ user.name }}`s email: {{user.email}}
-    </p>
-    <p>{{ x * y }}</p>
-    <p>{{ myFun(20) }}</p>
-    <p>
-        {{ name }}
-        {{ count }}
-        <button @click="countEffect(), nameEffect()">+1</button>
-    </p>
-</div>
-<script type="module">
-    import { createApp } from 'vue';
-    import MyComponent from './my-component.js';
 
-    createApp(MyComponent).mount('#app');
+<div id="app">
+  <p v-show="isShow">{{ message }}</p>
+  <p v-if="x === 0">x = 0</p>
+  <p v-else-if="x === 1">x = 1</p>
+  <p v-else-if="x === 2">x = 2</p>
+  <p v-else>x != 0</p>
+  <p v-for="(user, index) in users">
+    {{index + 1}}. {{ user.name }}`s email: {{user.email}}
+  </p>
+  <p>{{ x * y }}</p>
+  <p>{{ myFun(20) }}</p>
+  <p>
+    {{ name }}
+    {{ count }}
+    <button @click="countEffect(), nameEffect()">+1</button>
+  </p>
+  <p v-once>{{ inputText }}</p>
+  <p v-pre>{{ inputText }}</p>
+  <input type="text" v-model.trim="inputText">
+  <br>
+  <br>
+  <input type="text" v-model.lazy="inputText">
+</div>
+
+<script type="module">
+  import { createApp } from 'vue';
+  import MyComponent from './my-component.js';
+
+  createApp(MyComponent).mount('#app');
 </script>
+
 <style>
-    #app {
-        width: 70%;
-        height: 80%;
-        position: relative;
-        left: 12%;
-        top: 5%;
-        border: 1px solid #444;
-        border-radius: 20px;
-        padding: 3rem;
-        text-align: center;
-    }
+  body {
+    background: #3c3c3c;
+  }
+
+  #app {
+    color: #B9B9FF;
+    width: 70%;
+    height: 80%;
+    position: relative;
+    left: 12%;
+    top: 5%;
+    border: 7px solid #C6A300;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+  }
 </style>
